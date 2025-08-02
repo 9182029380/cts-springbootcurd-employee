@@ -25,4 +25,23 @@ public class EmployeeController {
     public List<Employee> getallemployees(){
         return service.getallemployees();
     }
+    @GetMapping("/{empid}")
+    public Employee getByEmpid(@PathVariable String empid){
+        return  service.getByEmpid(empid);
+
+    }
+    //get with phonenumber
+    @GetMapping("/phone/{phone}")
+    public Employee getByPhone(@PathVariable String phone){
+        return service.getByPhone(phone);
+    }
+    @PutMapping("/{empid}")
+    public Employee updateByEmpid(@PathVariable String empid,@RequestBody Employee emp){
+        return service.updateByEmpid(empid,emp);
+    }
+    @DeleteMapping("/{empid}")
+    public void deleteByEmpid(@PathVariable String empid){
+        service.deleteByEmpid(empid);
+    }
+
 }
